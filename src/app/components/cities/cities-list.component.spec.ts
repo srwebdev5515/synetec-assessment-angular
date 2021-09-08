@@ -1,6 +1,10 @@
 import { TestBed, async } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+
 import { AppComponent } from '../../app.component';
 import { CitiesListComponent } from './cities-list.component';
+import { CitiesService } from '../../services/cities/cities.service';
+import { CitiesEndpoint } from '../../services/cities/cities-endpoint.service';
 
 describe('CitiesListComponent', () => {
   beforeEach(async(() => {
@@ -9,6 +13,13 @@ describe('CitiesListComponent', () => {
         AppComponent,
         CitiesListComponent
       ],
+      imports: [
+        HttpClientTestingModule,
+      ],
+      providers: [
+        CitiesEndpoint,
+        CitiesService,
+      ]
     }).compileComponents();
   }));
   
